@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type = "component" version = "3.2" method = "upgrade">
+	<name><%= _.slugify(componentName)%></name>
+	<creationDate><%= currentDate %></creationDate>
+	<author><%= authorName %></author>
+	<authorEmail><%= authorEmail %></authorEmail>
+	<authorUrl><%= authorURL %></authorUrl>
+	<copyright>Copyright <%= currentDate %></copyright>
+	<license><%= license %></license>
+	<version>1.0.0</version>
+	<!-- Description contents contained in separate language file: see languages folder -->
+	<description><%= _.slugify(componentName).toUpperCase() %>-DESCRIPTION</description>
+
+	<!-- Runs on install/uninstall/update; New in 1.6 -->
+	<scriptfile>install-uninstall.php</scriptfile>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver = "mysql" charset = "utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver = "mysql" charset = "utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 1.6 -->
+		<schemas>
+			<schemapath type = "mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder = "site">
+		<folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>languages</folder>
+		<folder>models</folder>
+		<folder>tables</folder>
+		<folder>views</folder>
+		<filename>index.html</filename>
+		<filename><%= _.slugify(componentName)%>.php</filename>
+		<filename>router.php</filename>
+	</files>
+
+	<scriptfile>install.php</scriptfile>
+
+	<languages folder = "site">
+		<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.ini</language>
+	</languages>
+
+	<administration>
+		<menu link = "option=com_<%= _.slugify(componentName)%>" img = "components/com_<%= _.slugify(componentName)%>/assets/img/<%= _.slugify(componentName)%>_icon.png">COM_<%= _.slugify(componentName).toUpperCase() %> </menu>
+		<submenu>
+			<menu view = "settings" img = "components/com_<%= _.slugify(componentName)%>/assets/img/settings_icon.png" alt = "<%= _.slugify(componentName).toUpperCase() %>/Settings">COM_<%= _.slugify(componentName).toUpperCase() %>_SETTINGS
+			</menu>
+		</submenu>
+
+		<files folder = "admin">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>languages</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename><%= _.slugify(componentName)%>.php
+			</filename>
+			<filename>index.html</filename>
+			<filename>install.mysql.sql</filename>
+		</files>
+
+		<languages folder = "admin">
+			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.ini
+			</language>
+			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.sys.ini
+			</language>
+		</languages>
+
+	</administration>
+
+</extension>
