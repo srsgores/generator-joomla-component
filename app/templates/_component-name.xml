@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type = "component" version = "3.2" method = "upgrade">
+<extension type = "component" version = "3.0" method = "upgrade">
 	<name><%= _.slugify(componentName)%></name>
 	<creationDate><%= currentDate %></creationDate>
 	<author><%= authorName %></author>
@@ -9,7 +9,7 @@
 	<license><%= license %></license>
 	<version>1.0.0</version>
 	<!-- Description contents contained in separate language file: see languages folder -->
-	<description><%= _.slugify(componentName).toUpperCase() %>-DESCRIPTION</description>
+	<description>COM_<%= _.slugify(componentName).toUpperCase() %>-DESCRIPTION</description>
 
 	<!-- Runs on install/uninstall/update; New in 1.6 -->
 	<scriptfile>install-uninstall.php</scriptfile>

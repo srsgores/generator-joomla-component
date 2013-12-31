@@ -1,8 +1,8 @@
 /*global describe, beforeEach, it*/
 'use strict';
 
-var path = require('path');
-var helpers = require('yeoman-generator').test;
+var path = require('path'),
+	helpers = require('yeoman-generator').test;
 
 describe('joomla-component generator', function ()
 {
@@ -34,7 +34,11 @@ describe('joomla-component generator', function ()
 	{
 		var expected = [
 			'.jshintrc',
-			'.editorconfig'
+			'.editorconfig',
+			'bower.json',
+			'config.xml',
+			'access.xml',
+			_.slugify(generatorDefaults.componentName) + '.xml',
 		];
 
 		helpers.mockPrompt(this.app, generatorDefaults);
@@ -57,7 +61,6 @@ describe('joomla-component generator', function ()
 				'index.html',
 				'modelName.php'
 			];
-
 		// act
 		helpers.mockPrompt(this.app, {
 			'modelName': 'modelName'

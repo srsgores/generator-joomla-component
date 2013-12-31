@@ -1,7 +1,21 @@
 # generator-joomla-component [![Build Status](https://secure.travis-ci.org/srsgores/generator-joomla-component.png?branch=master)](https://travis-ci.org/srsgores/generator-joomla-component)
 
-A generator for [Yeoman](http://yeoman.io).
+A component generator for [Yeoman](http://yeoman.io).
 
+## What It Does (Better)
+Using this generator, you can quickly and effortlessly *scaffold* out a new [joomla](http://joomla.org) component,
+using recommended MVC design pattern and coding standards.  These include:
+
+* Internationalization language files
+* Tabs for indents
+* CamelCase variable notation
+* Proper MVC architecture
+* PHPDocumentor stubs for every method, as well as page-level doc blocks
+* Uses ``'`` over ``"``, because that's what the official Joomla library uses
+
+So rather than manually creating your own ``config.xml`` and other config files,
+you just need to load up this generator, type in your options, and everything is set up for you.  If you want to add
+a new model, view, or controller, just use the subgenerators!
 
 ## Getting Started
 
@@ -35,13 +49,15 @@ Finally, initiate the generator:
 $ yo joomla-component
 ```
 
-### Getting To Know Yeoman
+## Subgenerators
+There are currently **4** subgenerators:
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+1. *model*: ``yo generator-joomla-component:model "model-name"``
+2. *view*: ``yo generator-joomla-component:view "view-name"``
+3. *controller*: ``yo generator-joomla-component:controller "controller-name"``
+4. *helper*: ``yo generator-joomla-component:helper "helper-name"``
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
+Each generator creates a new file with phpdocumentor and joomla standards, packaged and subpackaged as needed
 
 ## License
-
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)

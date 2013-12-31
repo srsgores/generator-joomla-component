@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<!-- Component options: stuff you add here will show up in the admin back-end -->
+	<fieldset name = "component" label = "COM_<%= _.slugify(componentName).toUpperCase() %>_COMPONENT_LABEL" description = "COM_<%= _.slugify(componentName).toUpperCase() %>_COMPONENT_DESC">
+
+	</fieldset>
+	<!-- Permissions: shows up in the permissions tab of the component -->
+	<fieldset name = "permissions" description = "JCONFIG_PERMISSIONS_DESC" label = "JCONFIG_PERMISSIONS_LABEL">
+		<field name = "rules" type = "rules"
+			component = "com_<%= _.slugify(componentName) %>"
+			filter = "rules"
+			validate = "rules"
+			label = "JCONFIG_PERMISSIONS_LABEL"
+			section = "component"/>
+	</fieldset>
+</config>

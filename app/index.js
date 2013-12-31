@@ -58,7 +58,17 @@ JoomlaComponentGenerator.prototype.askFor = function askFor()
 			name: 'license',
 			message: 'What\'s the copyright license?',
 			default: 'MIT'
-		}
+		},
+		{
+			type: 'confirm',
+			name: 'requireManageRights',
+			message: 'Does your component require admin manage rights to access it?'
+		},
+		{
+			type: 'confirm',
+			name: 'legacyJoomla',
+			message: 'Support Joomla 2.5x with compatibility layer?'
+		},
 	];
 
 	this.prompt(prompts, function (props)
@@ -69,6 +79,8 @@ JoomlaComponentGenerator.prototype.askFor = function askFor()
 		this.authorEmail = props.authorEmail;
 		this.authorURL = props.authorURL;
 		this.license = props.license;
+		this.requireManageRights = props.requireManageRights;
+		this.legacyJoomla = props.legacyJoomla;
 		this.currentDate = getCurrentDate();
 		cb();
 	}.bind(this));
@@ -93,4 +105,14 @@ JoomlaComponentGenerator.prototype.projectfiles = function projectfiles()
 JoomlaComponentGenerator.prototype.createConfigFiles = function createConfigFiles()
 {
 	this.template('_component-name.xml', this._.slugify(this.componentName) + '.xml');
+};
+
+/**
+ * Create legacy files for fallback to Joomla 2.5x
+ */
+JoomlaComponentGenerator.prototype.createLegacyFallbackFiles = function createLegacyFallbackFiles()
+{
+	if (this.legacyJoomla === true) {
+		this.template('_legacy.php', 'legacy.php');
+	}
 };
