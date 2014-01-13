@@ -2,7 +2,8 @@
 'use strict';
 
 var path = require('path'),
-	helpers = require('yeoman-generator').test;
+	helpers = require('yeoman-generator').test,
+	slugify = require('slugify');
 
 describe('joomla-component generator', function ()
 {
@@ -12,7 +13,9 @@ describe('joomla-component generator', function ()
 		'authorName': 'Test author name',
 		'authorEmail': 'testemail@gmail.com',
 		'authorURL': 'testauthor@testauthor.com',
-		'license': 'MIT'
+		'license': 'MIT',
+		'legacyJoomla': true,
+		'requireManageRights': true
 	};
 	beforeEach(function (done)
 	{
@@ -38,7 +41,7 @@ describe('joomla-component generator', function ()
 			'bower.json',
 			'config.xml',
 			'access.xml',
-			_.slugify(generatorDefaults.componentName) + '.xml',
+			slugify(generatorDefaults.componentName) + '.xml'
 		];
 
 		helpers.mockPrompt(this.app, generatorDefaults);
@@ -49,28 +52,35 @@ describe('joomla-component generator', function ()
 			done();
 		});
 	});
-
-	/**
-	 * Test that model subgenerator creates desired files
-	 */
-	it('creates model files', function ()
-	{
-		// arrange
-		var testModelName = 'modelName',
-			expectedFiles = [
-				'index.html',
-				'modelName.php'
-			];
-		// act
-		helpers.mockPrompt(this.app, {
-			'modelName': 'modelName'
-		});
+	it('creates package.json file', function () {
+		//arrange
+		//act
+		//assert
+		helpers.mockPrompt(this.app, generatorDefaults);
 		this.app.options['skip-install'] = true;
-
-		// assert
 		this.app.run({}, function ()
 		{
-			helpers.assertFiles(expectedFiles);
+			helpers.assertFiles(['package.json']);
+			done();
+		});
+	});
+	it('creates empty mvc folders', function () {
+		//arrange
+		var expectedFolders = [
+		'controllers',
+		'helpers',
+		'models',
+		'sql',
+		'tables',
+		'views'
+		];
+		//act
+		//assert
+		helpers.mockPrompt(this.app, generatorDefaults);
+		this.app.options['skip-install'] = true;
+		this.app.run({}, function ()
+		{
+			helpers.assertFiles(expectedFolders);
 			done();
 		});
 	});

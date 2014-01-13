@@ -19,7 +19,7 @@ util.inherits(JoomlaComponentGenerator, yeoman.generators.Base);
 
 function getCurrentDate()
 {
-	return new Date().getDate();
+	return new Date().getUTCDate();
 }
 JoomlaComponentGenerator.prototype.askFor = function askFor()
 {
@@ -105,6 +105,9 @@ JoomlaComponentGenerator.prototype.projectfiles = function projectfiles()
 JoomlaComponentGenerator.prototype.createConfigFiles = function createConfigFiles()
 {
 	this.template('_component-name.xml', this._.slugify(this.componentName) + '.xml');
+	this.template('_config.xml', 'config.xml');
+	//create access file
+	this.template('_access.xml', 'access.xml');
 };
 
 /**
@@ -115,4 +118,19 @@ JoomlaComponentGenerator.prototype.createLegacyFallbackFiles = function createLe
 	if (this.legacyJoomla === true) {
 		this.template('_legacy.php', 'legacy.php');
 	}
+};
+
+JoomlaComponentGenerator.prototype.createEmptyMVCFolders = function createEmptyMVCFolders() {
+	var emptyMVCFolders = [
+		'controllers',
+		'helpers',
+		'models',
+		'sql',
+		'tables',
+		'views'
+	];
+	var that = this;
+	emptyMVCFolders.forEach(function(folderName) {
+		that.mkdir(folderName);
+	});
 };

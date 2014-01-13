@@ -1,5 +1,20 @@
 {
 	"name": "<%= _.slugify(componentName) %>",
+	"description": "<%= description %>",
+	"componentName": "<%= componentName %>",
+	"requireManageRights": "<%= requireManageRights %>",
+	"author":  {
+		"name": "<%= authorName %>",
+		"email": "<%= authorEmail %>",
+		"url": "<%= authorURL %>"
+	},
+	"licenses": [
+		{
+			"type": "<%= license %>"
+		}
+	],
+	"repository": "",
+	"readme": "<%= description %>",
 	"version": "1.0.0",
 	"dependencies": {}
 }
