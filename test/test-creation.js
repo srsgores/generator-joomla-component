@@ -85,4 +85,22 @@ describe('joomla-component generator', function ()
 		});
 	});
 
+	it("creates language files", function () {
+		//arrange
+		var preferredLanguage = 'en-GB',
+			expectedLanguageFiles = [
+			'languages/' + preferredLanguage + '/' + preferredLanguage + '.com_' + this.componentName + '.ini',
+			'languages/' + preferredLanguage + '/' + preferredLanguage + '.com_' + this.componentName + '.sys.ini'
+		];
+		//act
+		//assert
+		helpers.mockPrompt(this.app, generatorDefaults);
+		this.app.options['skip-install'] = true;
+		this.app.run({}, function ()
+		{
+			helpers.assertFiles(expectedLanguageFiles);
+			done();
+		});
+	});
+
 });

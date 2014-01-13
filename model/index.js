@@ -31,7 +31,7 @@ util.inherits(ModelGenerator, yeoman.generators.NamedBase);
 
 ModelGenerator.prototype.files = function files() {
 	var pkg = JSON.parse(this.readFileAsString(path.join(process.cwd(), './package.json'))),
-		currentDate = new Date().getDate();
+		currentDate = new Date().getUTCDate();
 	this.componentName = 		pkg.componentName;
 	this.description = 			pkg.description;
 	this.requireManageRights = 	pkg.requireManageRights;
