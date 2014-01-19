@@ -61,7 +61,12 @@ describe('joomla-component generator', function ()
 		this.app.options['skip-install'] = true;
 		this.app.run({}, function ()
 		{
-			helpers.assertFiles([this._.slugify(this.componentName) + '.php']);
+			helpers.assertFiles([
+				this._.slugify(this.componentName) + '.php',
+					'sql/install.mysql.utf8.sql',
+					'sql/uninstall.mysql.utf8.sql',
+					'install-uninstall.php'
+				]);
 			done();
 		});
 	});

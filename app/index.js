@@ -122,6 +122,18 @@ JoomlaComponentGenerator.prototype.createLegacyFallbackFiles = function createLe
 
 JoomlaComponentGenerator.prototype.createPHPFiles = function createPHPFiles() {
 	this.template('_component-name.php', this._.slugify(this.componentName) + '.php');
+	this.template('_router.php', 'router.php');
+};
+
+JoomlaComponentGenerator.prototype.createDatabaseFiles = function createDatabaseFiles() {
+	this.template('sql/_install.mysql.utf8.sql', 'sql/install.mysql.utf8.sql');
+	this.template('sql/_uninstall.mysql.utf8.sql', 'sql/uninstall.mysql.utf8.sql');
+	this.template('_install-uninstall.php', 'install-uninstall.php');
+};
+
+JoomlaComponentGenerator.prototype.creatLanguageFiles = function createLanguageFiles() {
+	this.template('languages/en-GB/_en-GB.com_component-name.ini', 'languages/en-GB/en-GB.com_' + this._.slugify(this.componentName) + '.ini');
+	this.template('languages/en-GB/_en-GB.com_component-name.ini', 'languages/en-GB/en-GB.com_' + this._.slugify(this.componentName) + '.sys.ini');
 };
 
 JoomlaComponentGenerator.prototype.createEmptyMVCFolders = function createEmptyMVCFolders() {
