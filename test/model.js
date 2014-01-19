@@ -36,7 +36,7 @@ describe('model', function () {
 				'../../app'
 			]);
 			this.app.options['skip-install'] = true;
-			helpers.mockPrompt(this.app, generatorDefaults);
+			//helpers.mockPrompt(this.app, generatorDefaults);
 			console.log('Created test app for subgenerator');
 			done();
 		}.bind(this));

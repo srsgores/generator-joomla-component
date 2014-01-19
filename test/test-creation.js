@@ -19,7 +19,7 @@ describe('joomla-component generator', function ()
 	};
 	beforeEach(function (done)
 	{
-		helpers.testDirectory(path.join(__dirname, 'temp'), function (err)
+		helpers.testDirectory(path.join(__dirname, './temp'), function (err)
 		{
 			if (err)
 			{
@@ -33,7 +33,7 @@ describe('joomla-component generator', function ()
 		}.bind(this));
 	});
 
-	it('creates expected files', function (done)
+	it('creates expected config files', function (done)
 	{
 		var expected = [
 			'.jshintrc',
@@ -41,6 +41,7 @@ describe('joomla-component generator', function ()
 			'bower.json',
 			'config.xml',
 			'access.xml',
+			'package.json',
 			slugify(generatorDefaults.componentName) + '.xml'
 		];
 
@@ -52,7 +53,7 @@ describe('joomla-component generator', function ()
 			done();
 		});
 	});
-	it('creates package.json file', function () {
+	it('creates php files', function () {
 		//arrange
 		//act
 		//assert
@@ -60,7 +61,7 @@ describe('joomla-component generator', function ()
 		this.app.options['skip-install'] = true;
 		this.app.run({}, function ()
 		{
-			helpers.assertFiles(['package.json']);
+			helpers.assertFiles([this._.slugify(this.componentName) + '.php']);
 			done();
 		});
 	});

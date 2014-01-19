@@ -120,6 +120,10 @@ JoomlaComponentGenerator.prototype.createLegacyFallbackFiles = function createLe
 	}
 };
 
+JoomlaComponentGenerator.prototype.createPHPFiles = function createPHPFiles() {
+	this.template('_component-name.php', this._.slugify(this.componentName) + '.php');
+};
+
 JoomlaComponentGenerator.prototype.createEmptyMVCFolders = function createEmptyMVCFolders() {
 	var emptyMVCFolders = [
 		'controllers',
@@ -132,5 +136,9 @@ JoomlaComponentGenerator.prototype.createEmptyMVCFolders = function createEmptyM
 	var that = this;
 	emptyMVCFolders.forEach(function(folderName) {
 		that.mkdir(folderName);
+		that.template('_index.html', folderName + '/index.html');
 	});
+	this.template('_index.html', 'index.html');
+	this.template('_index.html', 'languages/index.html');
+	this.template('_index.html', 'languages/en-GB/index.html');
 };

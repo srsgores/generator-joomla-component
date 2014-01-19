@@ -1,6 +1,6 @@
 <?php
 /**
- * _legacy.php
+ * legacy.php
  *
  * Allows the component to work in Joomla 2.5 as well as 3x
  * @package     <%= _.slugify(componentName) %>

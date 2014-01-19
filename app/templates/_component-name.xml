@@ -64,17 +64,14 @@
 			<folder>views</folder>
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
-			<filename><%= _.slugify(componentName)%>.php
-			</filename>
+			<filename><%= _.slugify(componentName)%>.php</filename>
 			<filename>index.html</filename>
 			<filename>install.mysql.sql</filename>
 		</files>
 
 		<languages folder = "admin">
-			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.ini
-			</language>
-			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.sys.ini
-			</language>
+			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.ini</language>
+			<language tag = "en-GB">languages/en-GB/en-GB.com_<%= _.slugify(componentName)%>.sys.ini</language>
 		</languages>
 
 	</administration>
