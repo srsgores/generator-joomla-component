@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
 /**
  * Class		<%= controllerClassName %>
  * @author		<%= authorName %> <<%= authorEmail %>>
- * TODO: Describe your class here
+ * TODO: Describe your controller here
  */
 class <%= controllerClassName %> extends JController // May also extend JControllerList for back-end component
 {
