@@ -14,9 +14,9 @@
 yeoman = require("yeoman-generator")
 path = require("path")
 ###
-	@class ViewGenerator sub-generator for joomla component controllers
+	@class HelperGenerator sub-generator for joomla component controllers
 ###
-module.exports = class ViewGenerator extends yeoman.generators.NamedBase
+module.exports = class HelperGenerator extends yeoman.generators.NamedBase
 	constructor: (args, options, config) ->
 		super args, options, config
 		pkg = JSON.parse(@readFileAsString(path.join(process.cwd(), "./package.json")))
@@ -28,11 +28,11 @@ module.exports = class ViewGenerator extends yeoman.generators.NamedBase
 		@authorURL = pkg.author?.url
 		@license = pkg.licenses[0]?.type
 		@currentDate = new Date().getFullYear()
-		@viewFolderName = @._.slugify(@name)
-		@viewClassName = @._.classify(@name)
+		@helperName = @._.slugify(@name)
+		@helperClassName = @._.classify(@name)
 		console.log """
-			You called the view subgenerator with the argument #{@name}.
-			Now let's create that view under the subdirectory views/#{@viewFolderName}/view.html.php for you...
+			You called the helper subgenerator with the argument #{@name}.
+			Now let's create that helper as helpers/#{@helperName}.php for you...
 		"""
-	generateView: ->
-		@template "_view.html.php", "views/#{@viewFolderName}/view.html.php"
+	generateHelper: ->
+		@template "_helper.php", "helpers/#{@helperName}.php"

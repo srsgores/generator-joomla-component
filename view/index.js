@@ -24,7 +24,7 @@
 
 
   /*
-  	@class ControllerGenerator sub-generator for joomla component controllers
+  	@class ViewGenerator sub-generator for joomla component controllers
    */
 
   module.exports = ViewGenerator = (function(_super) {
@@ -47,7 +47,7 @@
       console.log("You called the view subgenerator with the argument " + this.name + ".\nNow let's create that view under the subdirectory views/" + this.viewFolderName + "/view.html.php for you...");
     }
 
-    ViewGenerator.prototype.generateController = function() {
+    ViewGenerator.prototype.generateView = function() {
       return this.template("_view.html.php", "views/" + this.viewFolderName + "/view.html.php");
     };
 
