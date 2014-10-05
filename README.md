@@ -3,8 +3,7 @@
 A component generator for [Yeoman](http://yeoman.io).
 
 ## What It Does (Better)
-Using this generator, you can quickly and effortlessly *scaffold* out a new [joomla](http://joomla.org) component,
-using recommended MVC design pattern and coding standards.  These include:
+Using this generator, you can quickly and effortlessly *scaffold* out a new [joomla](http://joomla.org) component, using recommended MVC design pattern and coding standards.  These include:
 
 * Internationalization language files
 * Tabs for indents
@@ -13,9 +12,7 @@ using recommended MVC design pattern and coding standards.  These include:
 * PHPDocumentor stubs for every method, as well as page-level doc blocks
 * Uses ``'`` over ``"``, because that's what the official Joomla library uses
 
-So rather than manually creating your own ``config.xml`` and other config files,
-you just need to load up this generator, type in your options, and everything is set up for you.  If you want to add
-a new model, view, or controller, just use the subgenerators!
+So rather than manually creating your own ``config.xml`` and other config files, you just need to load up this generator, type in your options, and everything is set up for you.  If you want to add a new model, view, or controller, just use the subgenerators!
 
 ## Getting Started
 
@@ -50,14 +47,17 @@ $ yo joomla-component
 ```
 
 ## Subgenerators
-There are currently **4** subgenerators:
+There are currently **4** subgenerators planned; only ``component`` is working right now:
 
-1. *model*: ``yo joomla-component:model "model-name"``
-2. *view*: ``yo joomla-component:view "view-name"``
-3. *controller*: ``yo joomla-component:controller "controller-name"``
-4. *helper*: ``yo joomla-component:helper "helper-name"``
+1. *model*: ``yo joomla-component:model "model-name"`` - *Not yet implemented*
+2. *view*: ``yo joomla-component:view "view-name"`` - *Not yet implemented*
+3. *controller*: ``yo joomla-component:controller "controller-name"`` - **NEW**
+4. *helper*: ``yo joomla-component:helper "helper-name"`` - *Not yet implemented*
 
 Each generator creates a new file with phpdocumentor and joomla standards, packaged and subpackaged as needed
+
+## Reference
+The components and starting logic are derived form the book [Learning Joomla 3 Extension Development Third Edition](http://www.amazon.com/Learning-Joomla-Extension-Development-Third-Edition/dp/1782168370) (you can also find this on *other* alternative locations on the internet [by googling](https://encrypted.google.com/search?{google:acceptedSuggestion}oq=learning+joomla+3+extension+development&sourceid=chrome&ie=UTF-8&q=learning+joomla+3+extension+development))
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
