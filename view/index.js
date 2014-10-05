@@ -44,11 +44,12 @@
       this.currentDate = new Date().getFullYear();
       this.viewFolderName = this._.slugify(this.name);
       this.viewClassName = this._.classify(this.name);
-      console.log("You called the view subgenerator with the argument " + this.name + ".\nNow let's create that view under the subdirectory views/" + this.viewFolderName + "/view.html.php for you...");
+      console.log("You called the view subgenerator with the argument " + this.name + ".\nNow let's create that view under the subdirectory views/" + this.viewFolderName + " for you...");
     }
 
     ViewGenerator.prototype.generateView = function() {
-      return this.template("_view.html.php", "views/" + this.viewFolderName + "/view.html.php");
+      this.template("_view.html.php", "views/" + this.viewFolderName + "/view.html.php");
+      return this.template("_default.php", "views/" + this.viewFolderName + "/default.php");
     };
 
     return ViewGenerator;

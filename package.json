@@ -1,6 +1,6 @@
 {
 	"name": "generator-joomla-component",
-	"version": "0.0.35",
+	"version": "0.0.36",
 	"description": "Joomla component generator for Yeoman",
 	"keywords": [
 		"yeoman-generator"
